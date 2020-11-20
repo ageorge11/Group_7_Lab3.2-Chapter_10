@@ -133,6 +133,17 @@
             $('#preview').css("display","block");                
           
         });
+
+        $('.gallery img').on("mousemove",function(e)
+        {
+           $('#preview').css("top",e.pageY-"3");
+           $('#preview').css("left",e.pageX-"3px");
+        });
+
+        $('.gallery img').on("mouseleave",function() {
+            $(this).attr("class" ,"");
+            $('#preview').remove();
+        });
       
     });
     </script>
