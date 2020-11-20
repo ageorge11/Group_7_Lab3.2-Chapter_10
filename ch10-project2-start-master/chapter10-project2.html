@@ -101,7 +101,40 @@
           $(".gallery").append(pic);
         }
 
-    
+        $(document).ready(function() {
+        $('.gallery img').on("mouseenter", function()
+        { 
+            $(this).attr("class" ,"gray");
+
+             var prvw = $('<div id="preview"></div>');
+             var mdm = $('<img />');
+             var caption = $('<p></p>');
+                 
+              mdm.attr("src",$(this).attr('src').replace("square", "medium"));
+              mdm.attr("title",$(this).attr("title"));
+              mdm.attr("alt",$(this).attr("alt"));       
+             
+                       
+              for(var i=0; i<images.length;i++)
+              {
+                  if($(this).attr("alt")==(images[i].title))
+                  {
+                      var city = images[i].city;
+                      var country= images[i].country;
+                      var taken = images[i].taken;   
+                      break;     
+                  }
+              }
+            caption.html('<em>'+$(this).attr('title')+'</br>'+city+' ,'+country+' ,'+taken+'</em>')
+            $('.gallery').prepend(prvw);
+            $('#preview').append(mdm); 
+            $('#preview').append(caption);
+
+            $('#preview').css("display","block");                
+          
+        });
+      
+    });
     </script>
     <footer>
         <div class="container-fluid">
