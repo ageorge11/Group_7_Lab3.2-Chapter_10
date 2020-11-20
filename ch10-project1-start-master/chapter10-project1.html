@@ -80,6 +80,39 @@ $(document).ready(function() {
           .css('filter',s)
           .css('webkitFilter',s)
     }
+
+    $('#sliderOpacity').on('change', function() {
+        loadFilter['opacity'] = $(this).val();  
+        $('#numOpacity').text($(this).val());
+        changeFilter();
+    });
+
+    $('#sliderSaturation').on('change', function() {
+        loadFilter['saturate'] = $(this).val(); 
+        $('#numSaturation').text($(this).val());
+        changeFilter();      
+    });
+    $('#sliderBrightness').on('change', function() {
+        loadFilter['brightness'] = $(this).val();   
+        $('#numBrightness').text($(this).val());
+        changeFilter();      
+    });
+    $('#sliderHue').on('change', function() {
+        loadFilter['hue-rotate'] = $(this).val();   
+        $('#numHue').text($(this).val());
+        changeFilter();      
+    });
+    $('#sliderGray').on('change', function() {
+        loadFilter['grayscale'] = $(this).val();    
+        $('#numGray').text($(this).val());
+        changeFilter();      
+    });
+    $('#sliderBlur').on('change', function() {
+        loadFilter['blur'] = $(this).val(); 
+        $('#numBlur').text($(this).val());
+        changeFilter();      
+    });
+
 });
 </script>   
 </body>
