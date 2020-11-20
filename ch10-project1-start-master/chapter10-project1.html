@@ -50,7 +50,36 @@ $(document).ready(function() {
         loadFilter = {};
     });
 
-   
+    $('#resetFilters').click(function() {
+        loadFilter = {};
+        changeFilter();
+    });
+
+    function changeFilter() {
+        var s = '';
+        if('opacity' in loadFilter) {
+            s += ' opacity(' + loadFilter['opacity'] + '%)';
+        }
+        if('saturate' in loadFilter) {
+            s += ' saturate(' + loadFilter['saturate'] + '%)';
+        }
+        if('brightness' in loadFilter) {
+            s += ' brightness(' + loadFilter['brightness'] + '%)';
+        }
+        if('hue-rotate' in loadFilter) {
+            s += ' hue-rotate(' + loadFilter['hue-rotate'] + 'deg)';
+        }
+        if('grayscale' in loadFilter) {
+            s += ' grayscale(' + loadFilter['grayscale'] + '%)';
+        }
+        if('blur' in loadFilter) {
+            s += ' blur(' + loadFilter['blur'] + 'px)';
+        }
+
+        $("#imgManipulated img")
+          .css('filter',s)
+          .css('webkitFilter',s)
+    }
 });
 </script>   
 </body>
